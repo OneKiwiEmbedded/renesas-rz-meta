@@ -11,18 +11,15 @@ inherit deploy
 
 S = "${WORKDIR}/git"
 
-BRANCH = "v2.9/rz"
+BRANCH = "bsp-3.0.7-update3-v2.9/rz"
 
-SRC_URI = " \
-	git://github.com/renesas-rz/rzg_trusted-firmware-a.git;branch=${BRANCH};protocol=https \
-"
-
-SRCREV = "69ad8fc4d38f31cddbfd9dfc8cccfb6b8609dcb9"
+SRC_URI = "git://github.com/OneKiwiEmbedded/renesas-rz-tfa.git;branch=${BRANCH};protocol=https"
+SRCREV = "ccdde3e32481e2d3034ec3cb66cbd85e68f10dc4"
 
 PV = "v2.9+git"
 
 COMPATIBLE_MACHINE_rzg2h = "(ek874|hihope-rzg2m|hihope-rzg2n|hihope-rzg2h)"
-COMPATIBLE_MACHINE_rzg2l = "(smarc-rzg2l|rzg2l-dev|smarc-rzg2lc|rzg2lc-dev|smarc-rzg2ul|rzg2ul-dev|smarc-rzv2l|rzv2l-dev)"
+COMPATIBLE_MACHINE_rzg2l = "(onekiwi-rzv2l|smarc-rzg2l|rzg2l-dev|smarc-rzg2lc|rzg2lc-dev|smarc-rzg2ul|rzg2ul-dev|smarc-rzv2l|rzv2l-dev)"
 
 PLATFORM ?= "rzg"
 

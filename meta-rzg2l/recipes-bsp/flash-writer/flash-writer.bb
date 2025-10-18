@@ -17,13 +17,13 @@ S = "${WORKDIR}/git"
 PMIC_BUILD_DIR = "${S}/build_pmic"
 
 do_compile() {
-        if [ "${MACHINE}" = "smarc-rzg2l" ]; then
-                BOARD="RZG2L_SMARC";
-                PMIC_BOARD="RZG2L_SMARC_PMIC";
+	if [ "${MACHINE}" = "smarc-rzg2l" ]; then
+		BOARD="RZG2L_SMARC";
+		PMIC_BOARD="RZG2L_SMARC_PMIC";
 	elif [ "${MACHINE}" = "rzg2l-dev" ]; then
 		BOARD="RZG2L_15MMSQ_DEV";
-        elif [ "${MACHINE}" = "smarc-rzg2lc" ]; then
-                BOARD="RZG2LC_SMARC";
+	elif [ "${MACHINE}" = "smarc-rzg2lc" ]; then
+		BOARD="RZG2LC_SMARC";
 	elif [ "${MACHINE}" = "rzg2lc-dev" ]; then
 		BOARD="RZG2LC_DEV";
 	elif [ "${MACHINE}" = "smarc-rzg2ul" ]; then
@@ -33,9 +33,12 @@ do_compile() {
 	elif [ "${MACHINE}" = "smarc-rzv2l" ]; then
 		BOARD="RZV2L_SMARC";
 		PMIC_BOARD="RZV2L_SMARC_PMIC";
+	elif [ "${MACHINE}" = "onekiwi-rzv2l" ]; then
+		BOARD="RZV2L_SMARC";
+		PMIC_BOARD="RZV2L_SMARC_PMIC";
 	elif [ "${MACHINE}" = "rzv2l-dev" ]; then
 		BOARD="RZV2L_15MMSQ_DEV";
-        fi
+	fi
         cd ${S}
 
 	oe_runmake BOARD=${BOARD}

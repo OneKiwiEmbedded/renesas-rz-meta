@@ -3,7 +3,7 @@ DESCRIPTION = "Linux kernel for the RZG2 based board"
 require recipes-kernel/linux/linux-yocto.inc
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}/:"
-COMPATIBLE_MACHINE_rzg2l = "(smarc-rzg2l|rzg2l-dev|smarc-rzg2lc|rzg2lc-dev|smarc-rzg2ul|rzg2ul-dev|smarc-rzv2l|rzv2l-dev)"
+COMPATIBLE_MACHINE_rzg2l = "(onekiwi-rzv2l|smarc-rzg2l|rzg2l-dev|smarc-rzg2lc|rzg2lc-dev|smarc-rzg2ul|rzg2ul-dev|smarc-rzv2l|rzv2l-dev)"
 COMPATIBLE_MACHINE_rzg2h = "(ek874|hihope-rzg2n|hihope-rzg2m|hihope-rzg2h)"
 COMPATIBLE_MACHINE_rzfive = "(smarc-rzfive|rzfive-dev)"
 COMPATIBLE_MACHINE_rzv2m = "(rzv2m)"
@@ -11,10 +11,9 @@ COMPATIBLE_MACHINE_rzv2ma = "(rzv2ma)"
 COMPATIBLE_MACHINE_rzg1 = "(iwg20m-g1m|iwg20m-g1n|iwg21m|iwg22m|iwg23s)"
 COMPATIBLE_MACHINE_rzg3s = "(rzg3s-dev|smarc-rzg3s)"
 
-KERNEL_URL = " \
-    git://github.com/renesas-rz/rz_linux-cip.git"
-BRANCH = "${@oe.utils.conditional("IS_RT_BSP", "1", "rz-5.10-cip54-rt23", "rz-5.10-cip54",d)}"
-SRCREV = "${@oe.utils.conditional("IS_RT_BSP", "1", "2ef159659c39a597722766cd526a8b56456738ce", "e2055fbbd7d71b6b3f4793f615aff62ed16c5e77",d)}"
+KERNEL_URL = "git://github.com/OneKiwiEmbedded/renesas-rz-linux.git"
+BRANCH = "${@oe.utils.conditional("IS_RT_BSP", "1", "rz-5.10-cip54-rt23", "bsp-3.0.7-update3-rz-5.10-cip54",d)}"
+SRCREV = "${@oe.utils.conditional("IS_RT_BSP", "1", "2ef159659c39a597722766cd526a8b56456738ce", "${AUTOREV}",d)}"
 
 SRC_URI = "${KERNEL_URL};protocol=https;nocheckout=1;branch=${BRANCH}"
 LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
