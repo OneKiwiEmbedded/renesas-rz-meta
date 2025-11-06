@@ -3,6 +3,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 SRC_URI_append = " \
 	file://weston.sh \
 	file://weston.ini \
+	file://onekiwi.png \
 "
 
 do_install_append() {
@@ -16,9 +17,12 @@ do_install_append() {
 	install -d ${D}/${sysconfdir}/xdg/weston
 	install -m 0755 ${WORKDIR}/weston.ini ${D}/${sysconfdir}/xdg/weston/weston.ini
 
-        # Set XDG_RUNTIME_DIR to /run/user/$UID (e.g. run/user/0)
-        install -d ${D}/${sysconfdir}/profile.d
-        install -m 0755 ${WORKDIR}/weston.sh ${D}/${sysconfdir}/profile.d/weston.sh
+	# Set XDG_RUNTIME_DIR to /run/user/$UID (e.g. run/user/0)
+	install -d ${D}/${sysconfdir}/profile.d
+	install -m 0755 ${WORKDIR}/weston.sh ${D}/${sysconfdir}/profile.d/weston.sh
+
+	install -d ${D}${datadir}/weston
+	install -m 0755 ${WORKDIR}/onekiwi.png ${D}${datadir}/weston/onekiwi.png
 
 	# Fix weston.service and weston@.service run simultaneously.
 	mv ${D}/${sysconfdir}/init.d/weston ${D}/${sysconfdir}/init.d/weston@
@@ -26,6 +30,8 @@ do_install_append() {
 
 FILES_${PN}_append = " \
 	${sysconfdir}/profile.d/weston.sh \
+	${datadir}/weston \
+    ${datadir}/weston/* \
 "
 
 INITSCRIPT_NAME = "weston@"
