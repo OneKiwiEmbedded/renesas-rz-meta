@@ -14,9 +14,9 @@ S = "${WORKDIR}/git"
 BRANCH = "bsp-3.0.7-update3-v2.9/rz"
 
 SRC_URI = "git://github.com/OneKiwiEmbedded/renesas-rz-tfa.git;branch=${BRANCH};protocol=https"
-SRCREV = "ccdde3e32481e2d3034ec3cb66cbd85e68f10dc4"
+SRCREV = "${AUTOREV}"
 
-PV = "v2.9+git"
+PV = "v2.9+git${SRCPV}"
 
 COMPATIBLE_MACHINE_rzg2h = "(ek874|hihope-rzg2m|hihope-rzg2n|hihope-rzg2h)"
 COMPATIBLE_MACHINE_rzg2l = "(onekiwi-rzv2l|smarc-rzg2l|rzg2l-dev|smarc-rzg2lc|rzg2lc-dev|smarc-rzg2ul|rzg2ul-dev|smarc-rzv2l|rzv2l-dev)"
