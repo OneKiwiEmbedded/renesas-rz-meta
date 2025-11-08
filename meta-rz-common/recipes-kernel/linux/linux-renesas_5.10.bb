@@ -11,7 +11,7 @@ COMPATIBLE_MACHINE_rzv2ma = "(rzv2ma)"
 COMPATIBLE_MACHINE_rzg1 = "(iwg20m-g1m|iwg20m-g1n|iwg21m|iwg22m|iwg23s)"
 COMPATIBLE_MACHINE_rzg3s = "(rzg3s-dev|smarc-rzg3s)"
 
-KERNEL_URL = "git://github.com/OneKiwiEmbedded/renesas-rzv-linux.git"
+KERNEL_URL = "git://github.com/OneKiwiEmbedded/renesas-rz-linux.git"
 KIWI_BRANCH = "bsp-3.0.6-update4-rz-5.10-cip41"
 KIWI_SRCREV = "${AUTOREV}"
 BRANCH = "${@oe.utils.conditional("IS_RT_BSP", "1", "rz-5.10-cip41-rt17", "${KIWI_BRANCH}",d)}"
